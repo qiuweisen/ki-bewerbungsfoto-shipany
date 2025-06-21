@@ -4,13 +4,14 @@ import { respData, respErr } from "@/lib/resp";
 import type { ImageModelV1 } from "@ai-sdk/provider";
 import { getUuid } from "@/lib/hash";
 import { kling } from "@/aisdk/kling";
+import { tuzi } from "@/aisdk/tuzi";
 import { newStorage } from "@/lib/storage";
 import { openai } from "@ai-sdk/openai";
 import { replicate } from "@ai-sdk/replicate";
 
 export async function POST(req: Request) {
   try {
-    const { prompt, provider, model } = await req.json();
+    const { prompt, provider, model, options = {} } = await req.json();
     if (!prompt || !provider || !model) {
       return respErr("invalid params");
     }
@@ -40,6 +41,12 @@ export async function POST(req: Request) {
         imageModel = kling.image(model);
         providerOptions = {
           kling: {},
+        };
+        break;
+      case "tuzi":
+        imageModel = tuzi.image(model);
+        providerOptions = {
+          tuzi: options,
         };
         break;
       default:

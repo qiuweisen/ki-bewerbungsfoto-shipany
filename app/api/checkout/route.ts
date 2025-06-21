@@ -60,6 +60,7 @@ export async function POST(req: Request) {
       !expectedAmount ||
       expectedAmount !== amount ||
       item.interval !== interval ||
+      !expectedCurrency ||
       expectedCurrency.toLowerCase() !== currency.toLowerCase()
     ) {
       return respErr("invalid checkout params");
