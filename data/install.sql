@@ -103,20 +103,33 @@ CREATE TABLE feedbacks (
     rating INT
 );
 
-CREATE TABLE ai_generations (
+-- AI生成订单表（优化后的设计）
+CREATE TABLE ai_generation_orders (
     id SERIAL PRIMARY KEY,
-    uuid VARCHAR(255) UNIQUE NOT NULL,
     user_uuid VARCHAR(255) NOT NULL,
+    biz_no VARCHAR(255) NOT NULL, -- 前端传入的业务号（时间戳）
     type VARCHAR(50) NOT NULL, -- 'image', 'video', 'text'
     provider VARCHAR(50) NOT NULL, -- 'openai', 'tuzi', 'kling', etc.
     model VARCHAR(100) NOT NULL,
     prompt TEXT NOT NULL,
     options JSONB,
+    credits_cost INT NOT NULL DEFAULT 0,
+    status VARCHAR(50) NOT NULL DEFAULT 'created', -- 'created', 'credits_deducted', 'processing', 'success', 'failed', 'refunded'
     result_urls TEXT[], -- 生成结果的URL数组
     result_data JSONB, -- 用于存储非URL类型的结果
-    credits_cost INT NOT NULL DEFAULT 0,
-    status VARCHAR(50) NOT NULL DEFAULT 'pending', -- 'pending', 'success', 'failed'
-    created_at TIMESTAMPTZ NOT NULL,
+    provider_request_id VARCHAR(255), -- 第三方API的请求ID（如果支持）
+    credits_trans_no VARCHAR(255), -- 积分扣减的交易号
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     completed_at TIMESTAMPTZ,
-    error_message TEXT
+    error_message TEXT,
+    retry_count INT DEFAULT 0,
+
+    -- 核心唯一索引：确保幂等性
+    UNIQUE(user_uuid, biz_no)
 );
+
+-- 创建索引
+CREATE INDEX idx_ai_generation_orders_user_uuid ON ai_generation_orders(user_uuid);
+CREATE INDEX idx_ai_generation_orders_status ON ai_generation_orders(status);
+CREATE INDEX idx_ai_generation_orders_created_at ON ai_generation_orders(created_at);

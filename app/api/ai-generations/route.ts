@@ -1,5 +1,5 @@
 import { respData, respErr } from "@/lib/resp";
-import { getAIGenerationRecordsByUser } from "@/models/ai-generation-record";
+import { getAIGenerationOrdersByUser } from "@/models/ai-generation-record";
 import { getUserUuid } from "@/services/user";
 
 export async function GET(req: Request) {
@@ -14,17 +14,17 @@ export async function GET(req: Request) {
     const page = parseInt(url.searchParams.get('page') || '1');
     const limit = parseInt(url.searchParams.get('limit') || '20');
 
-    const records = await getAIGenerationRecordsByUser(
+    const orders = await getAIGenerationOrdersByUser(
       userUuid,
       type || undefined,
       page,
       limit
     );
 
-    return respData(records);
+    return respData(orders);
   } catch (error) {
-    console.error("获取AI生成记录失败:", error);
-    return respErr("获取记录失败");
+    console.error("获取AI生成订单失败:", error);
+    return respErr("获取订单失败");
   }
 }
 
@@ -37,16 +37,16 @@ export async function POST(req: Request) {
 
     const { type, page = 1, limit = 20 } = await req.json();
 
-    const records = await getAIGenerationRecordsByUser(
+    const orders = await getAIGenerationOrdersByUser(
       userUuid,
       type,
       page,
       limit
     );
 
-    return respData(records);
+    return respData(orders);
   } catch (error) {
-    console.error("获取AI生成记录失败:", error);
-    return respErr("获取记录失败");
+    console.error("获取AI生成订单失败:", error);
+    return respErr("获取订单失败");
   }
 }

@@ -7,14 +7,18 @@ import { AIGenerationRequest } from "@/types/ai-generation-record";
 
 export async function POST(req: Request) {
   try {
-    const { prompt, provider, model, options = {} } = await req.json();
-    if (!prompt || !provider || !model) {
-      return respErr("invalid params");
+    const { prompt, provider, model, options = {}, bizNo } = await req.json();
+    if (!prompt || !provider || !model || !bizNo) {
+      return respErr("invalid params: prompt, provider, model, bizNo are required");
     }
 
     // 从配置获取业务参数
     const config = getAIGenerationConfig('image');
     const userUuid = await getUserUuid();
+
+    if (!userUuid) {
+      return respErr("user not authenticated");
+    }
 
     // 构建AI生成请求
     const request: AIGenerationRequest = {
@@ -22,6 +26,7 @@ export async function POST(req: Request) {
       provider,
       model,
       options,
+      bizNo, // 前端传入的业务号（时间戳）
       userUuid,
       type: 'image',
       saveRecord: config.saveRecord,
@@ -35,8 +40,9 @@ export async function POST(req: Request) {
     if (result.success) {
       return respData({
         images: result.data,
-        recordUuid: result.recordUuid,
+        orderId: result.orderId,
         creditsConsumed: result.creditsConsumed,
+        isRetry: result.isRetry,
       });
     } else {
       return respErr(result.error || "generation failed");
