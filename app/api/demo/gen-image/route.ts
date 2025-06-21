@@ -99,6 +99,7 @@ export async function POST(req: Request) {
     );
 
     return respData(processedImages);
+
   } catch (err) {
     console.log("gen image failed:", err);
     return respErr("gen image failed");

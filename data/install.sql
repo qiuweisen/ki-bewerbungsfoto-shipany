@@ -102,3 +102,21 @@ CREATE TABLE feedbacks (
     content TEXT,
     rating INT
 );
+
+CREATE TABLE ai_generations (
+    id SERIAL PRIMARY KEY,
+    uuid VARCHAR(255) UNIQUE NOT NULL,
+    user_uuid VARCHAR(255) NOT NULL,
+    type VARCHAR(50) NOT NULL, -- 'image', 'video', 'text'
+    provider VARCHAR(50) NOT NULL, -- 'openai', 'tuzi', 'kling', etc.
+    model VARCHAR(100) NOT NULL,
+    prompt TEXT NOT NULL,
+    options JSONB,
+    result_urls TEXT[], -- 生成结果的URL数组
+    result_data JSONB, -- 用于存储非URL类型的结果
+    credits_cost INT NOT NULL DEFAULT 0,
+    status VARCHAR(50) NOT NULL DEFAULT 'pending', -- 'pending', 'success', 'failed'
+    created_at TIMESTAMPTZ NOT NULL,
+    completed_at TIMESTAMPTZ,
+    error_message TEXT
+);
