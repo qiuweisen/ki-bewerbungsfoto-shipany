@@ -42,14 +42,25 @@ export async function POST(req: Request) {
     const item = page.pricing.items.find(
       (item: PricingItem) => item.product_id === product_id
     );
+    if (!item || !item.interval) {
+      return respErr("invalid checkout params");
+    }
+
+    // 根据货币类型确定期望的金额和货币
+    let expectedAmount = item.amount;
+    let expectedCurrency = item.currency;
+
+    // 如果是人民币支付，使用中国金额
+    if (currency === "cny" || currency === "CNY") {
+      expectedAmount = item.cn_amount || item.amount;
+      expectedCurrency = "cny";
+    }
+
     if (
-      !item ||
-      !item.amount ||
-      !item.interval ||
-      !item.currency ||
-      item.amount !== amount ||
+      !expectedAmount ||
+      expectedAmount !== amount ||
       item.interval !== interval ||
-      item.currency !== currency
+      expectedCurrency.toLowerCase() !== currency.toLowerCase()
     ) {
       return respErr("invalid checkout params");
     }
