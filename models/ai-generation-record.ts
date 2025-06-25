@@ -212,3 +212,22 @@ export async function getAIGenerationOrdersByUser(
 
   return data || [];
 }
+
+/**
+ * 删除AI生成订单
+ */
+export async function deleteAIGenerationOrder(orderId: number): Promise<boolean> {
+  const supabase = getSupabaseClient();
+
+  const { error } = await supabase
+    .from("ai_generation_orders")
+    .delete()
+    .eq("id", orderId);
+
+  if (error) {
+    console.error("Error deleting AI generation order:", error);
+    return false;
+  }
+
+  return true;
+}

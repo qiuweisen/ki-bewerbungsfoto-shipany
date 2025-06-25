@@ -10,6 +10,7 @@
     "credits": "Credits",
     "api_keys": "API Keys",
     "my_orders": "My Orders",
+    "my_photos": "My Photos",
     "user_center": "User Center",
     "admin_system": "Admin System"
   },
@@ -121,5 +122,29 @@
     "contact_tip": "Other ways to contact us",
     "rating_tip": "How do you feel about ShipAny?",
     "placeholder": "Leave your words here..."
+  },
+  "my_photos": {
+    "title": "My Photos",
+    "description": "Manage your AI-generated photos.",
+    "no_photos": "No generated photos yet",
+    "download_all": "Download Selected",
+    "download": "Download",
+    "delete": "Delete",
+    "confirm_delete": "Are you sure you want to delete this photo?",
+    "delete_success": "Photo deleted successfully",
+    "delete_error": "Failed to delete, please try again",
+    "created_at": "Created At",
+    "prompt": "Prompt",
+    "provider": "AI Provider",
+    "model": "Model",
+    "view_details": "View Details",
+    "close_details": "Close",
+    "copy_prompt": "Copy Prompt",
+    "prompt_copied": "Prompt copied",
+    "select_all": "Select All",
+    "deselect_all": "Deselect All",
+    "selected_count": "{count} selected",
+    "batch_delete": "Batch Delete",
+    "confirm_batch_delete": "Are you sure you want to delete {count} selected photos?"
   }
 }

@@ -10,6 +10,7 @@
     "credits": "额度",
     "api_keys": "API 密钥",
     "my_orders": "我的订单",
+    "my_photos": "我的照片",
     "user_center": "用户中心",
     "admin_system": "管理后台"
   },
@@ -121,5 +122,29 @@
     "contact_tip": "其他联系方式",
     "rating_tip": "您对 ShipAny 的看法如何？",
     "placeholder": "在这里留下您的反馈..."
+  },
+  "my_photos": {
+    "title": "我的照片",
+    "description": "管理您生成的 AI 照片。",
+    "no_photos": "暂无生成的照片",
+    "download_all": "下载选中",
+    "download": "下载",
+    "delete": "删除",
+    "confirm_delete": "确定要删除这张照片吗？",
+    "delete_success": "照片删除成功",
+    "delete_error": "删除失败，请重试",
+    "created_at": "创建时间",
+    "prompt": "提示词",
+    "provider": "AI 提供商",
+    "model": "模型",
+    "view_details": "查看详情",
+    "close_details": "关闭",
+    "copy_prompt": "复制提示词",
+    "prompt_copied": "提示词已复制",
+    "select_all": "全选",
+    "deselect_all": "取消全选",
+    "selected_count": "已选择 {count} 张",
+    "batch_delete": "批量删除",
+    "confirm_batch_delete": "确定要删除选中的 {count} 张照片吗？"
   }
 }
