@@ -189,5 +189,4 @@ export default function ImageComparison({
   );
 }
 
-// Export types for use in other components
-export type { ImageComparisonProps };
+

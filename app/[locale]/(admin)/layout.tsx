@@ -52,6 +52,11 @@ export default async function AdminLayout({
           url: "/admin/orders",
         },
         {
+          title: "Photos",
+          url: "/admin/photos",
+          icon: "RiImageLine",
+        },
+        {
           title: "Posts",
           url: "/admin/posts",
           icon: "RiArticleLine",

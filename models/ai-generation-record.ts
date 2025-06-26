@@ -231,3 +231,37 @@ export async function deleteAIGenerationOrder(orderId: number): Promise<boolean>
 
   return true;
 }
+
+/**
+ * 获取所有AI生成订单（管理员用）
+ */
+export async function getAllAIGenerationOrders(
+  type?: 'image' | 'video' | 'text',
+  page: number = 1,
+  limit: number = 50
+): Promise<AIGenerationOrder[]> {
+  if (page < 1) page = 1;
+  if (limit <= 0) limit = 50;
+
+  const offset = (page - 1) * limit;
+  const supabase = getSupabaseClient();
+
+  let query = supabase
+    .from("ai_generation_orders")
+    .select("*")
+    .order("created_at", { ascending: false })
+    .range(offset, offset + limit - 1);
+
+  if (type) {
+    query = query.eq("type", type);
+  }
+
+  const { data, error } = await query;
+
+  if (error) {
+    console.error("Error fetching all AI generation orders:", error);
+    return [];
+  }
+
+  return data || [];
+}

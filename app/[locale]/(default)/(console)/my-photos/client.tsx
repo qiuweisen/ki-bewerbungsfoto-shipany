@@ -44,7 +44,8 @@ export default function MyPhotosClient({ photos, translations }: MyPhotosClientP
   const [isDeleting, setIsDeleting] = useState(false);
 
   // 选择/取消选择照片
-  const togglePhotoSelection = useCallback((photoId: number) => {
+  const togglePhotoSelection = useCallback((photoId: number | undefined) => {
+    if (photoId === undefined) return;
     setSelectedPhotos(prev => {
       const newSet = new Set(prev);
       if (newSet.has(photoId)) {
@@ -61,7 +62,7 @@ export default function MyPhotosClient({ photos, translations }: MyPhotosClientP
     if (selectedPhotos.size === photos.length) {
       setSelectedPhotos(new Set());
     } else {
-      setSelectedPhotos(new Set(photos.map(photo => photo.id)));
+      setSelectedPhotos(new Set(photos.map(photo => photo.id).filter((id): id is number => id !== undefined)));
     }
   }, [photos, selectedPhotos.size]);
 
@@ -80,14 +81,14 @@ export default function MyPhotosClient({ photos, translations }: MyPhotosClientP
       window.URL.revokeObjectURL(downloadUrl);
     } catch (error) {
       console.error('Download failed:', error);
-      toast.error('下载失败');
+      toast.error('Download failed');
     }
   }, []);
 
   // 批量下载选中的图片
   const downloadSelectedPhotos = useCallback(async () => {
-    const selectedPhotosList = photos.filter(photo => selectedPhotos.has(photo.id));
-    
+    const selectedPhotosList = photos.filter(photo => photo.id && selectedPhotos.has(photo.id));
+
     for (const photo of selectedPhotosList) {
       if (photo.result_urls && photo.result_urls.length > 0) {
         for (let i = 0; i < photo.result_urls.length; i++) {
@@ -99,20 +100,20 @@ export default function MyPhotosClient({ photos, translations }: MyPhotosClientP
         }
       }
     }
-    
-    toast.success(`已下载 ${selectedPhotosList.length} 张照片`);
+
+    toast.success(`Downloaded ${selectedPhotosList.length} photos`);
   }, [photos, selectedPhotos, downloadImage]);
 
   // 删除照片
-  const deletePhoto = useCallback(async (photoId: number) => {
-    if (!confirm(translations.confirmDelete)) return;
-    
+  const deletePhoto = useCallback(async (photoId: number | undefined) => {
+    if (!photoId || !confirm(translations.confirmDelete)) return;
+
     setIsDeleting(true);
     try {
       const response = await fetch(`/api/ai-generations/${photoId}`, {
         method: 'DELETE',
       });
-      
+
       if (response.ok) {
         toast.success(translations.deleteSuccess);
         // 刷新页面或从列表中移除
@@ -132,15 +133,15 @@ export default function MyPhotosClient({ photos, translations }: MyPhotosClientP
   const batchDeletePhotos = useCallback(async () => {
     if (selectedPhotos.size === 0) return;
     if (!confirm(translations.confirmBatchDelete.replace('{count}', selectedPhotos.size.toString()))) return;
-    
+
     setIsDeleting(true);
     try {
       const deletePromises = Array.from(selectedPhotos).map(photoId =>
         fetch(`/api/ai-generations/${photoId}`, { method: 'DELETE' })
       );
-      
+
       await Promise.all(deletePromises);
-      toast.success(`已删除 ${selectedPhotos.size} 张照片`);
+      toast.success(`Deleted ${selectedPhotos.size} photos`);
       setSelectedPhotos(new Set());
       window.location.reload();
     } catch (error) {
@@ -219,9 +220,9 @@ export default function MyPhotosClient({ photos, translations }: MyPhotosClientP
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {photos.map((photo) => (
           <PhotoCard
-            key={photo.id}
+            key={photo.id || `photo-${Math.random()}`}
             photo={photo}
-            isSelected={selectedPhotos.has(photo.id)}
+            isSelected={photo.id ? selectedPhotos.has(photo.id) : false}
             onToggleSelect={() => togglePhotoSelection(photo.id)}
             onDownload={downloadImage}
             onDelete={() => deletePhoto(photo.id)}
