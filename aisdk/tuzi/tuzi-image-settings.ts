@@ -3,9 +3,23 @@
  */
 export interface TuziImageSettings {
   /**
-   * 输入图像的 Base64 编码字符串（方案三暂时不支持）
+   * 输入图像的 Base64 编码字符串（已废弃，兔子API不支持base64）
+   * @deprecated 兔子API通过URL在提示词中实现图生图
    */
   inputImage?: string;
+
+  /**
+   * 单个输入图像的 URL 地址
+   * 兔子API会将此URL添加到提示词前面
+   */
+  inputImageUrl?: string;
+
+  /**
+   * 多个输入图像的 URL 地址列表
+   * 兔子API会将这些URL按空格分隔添加到提示词前面
+   * 支持多图组合生成
+   */
+  inputImageUrls?: string[];
   
   /**
    * 随机种子，用于可重复生成

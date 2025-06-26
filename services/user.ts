@@ -7,6 +7,7 @@ import { getOneYearLaterTimestr } from "@/lib/time";
 import { getUserUuidByApiKey } from "@/models/apikey";
 import { headers } from "next/headers";
 import { increaseCredits } from "./credit";
+import { getNewUserCredits } from "./credit-strategy";
 
 export async function saveUser(user: User) {
   try {
@@ -14,11 +15,15 @@ export async function saveUser(user: User) {
     if (!existUser) {
       await insertUser(user);
 
+      // 使用策略模式获取新用户积分
+      const h = await headers();
+      const signupCredits = await getNewUserCredits(h, user);
+
       // increase credits for new user, expire in one year
       await increaseCredits({
         user_uuid: user.uuid || "",
         trans_type: CreditsTransType.NewUser,
-        credits: CreditsAmount.NewUserGet,
+        credits: signupCredits,
         expired_at: getOneYearLaterTimestr(),
       });
     } else {

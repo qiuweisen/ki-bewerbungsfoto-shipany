@@ -39,16 +39,38 @@ export class TuziImageModel implements ImageModelV1 {
       // 获取兔子 API 特定的设置
       const tuziSettings = (providerOptions?.tuzi as TuziImageSettings) || {};
 
+      // 处理兔子API的图生图特殊实现：将图片URL添加到提示词前面
+      let finalPrompt = prompt;
+
+      // 如果有输入图片，按兔子API的要求格式化提示词
+      if (tuziSettings.inputImageUrl || tuziSettings.inputImageUrls) {
+        const imageUrls: string[] = [];
+
+        // 单图情况
+        if (tuziSettings.inputImageUrl) {
+          imageUrls.push(tuziSettings.inputImageUrl);
+        }
+
+        // 多图情况
+        if (tuziSettings.inputImageUrls && tuziSettings.inputImageUrls.length > 0) {
+          imageUrls.push(...tuziSettings.inputImageUrls);
+        }
+
+        // 按兔子API格式：图片URL列表 + 空格 + 原始提示词
+        if (imageUrls.length > 0) {
+          finalPrompt = imageUrls.join(' ') + ' ' + prompt;
+        }
+      }
+
       // 构建请求体（基于实际API测试结果）
       const requestBody = {
         model: this.modelId,
-        prompt: prompt,
+        prompt: finalPrompt, // 使用处理后的提示词
         aspectRatio: tuziSettings.aspectRatio || "1:1",
         outputFormat: tuziSettings.outputFormat || "png",
         safetyTolerance: tuziSettings.safetyTolerance || 2,
         promptUpsampling: tuziSettings.promptUpsampling || false,
         ...(tuziSettings.seed && { seed: tuziSettings.seed }),
-        ...(tuziSettings.inputImage && { inputImage: tuziSettings.inputImage }),
         ...(tuziSettings.webhookUrl && { webhookUrl: tuziSettings.webhookUrl }),
         ...(tuziSettings.webhookSecret && { webhookSecret: tuziSettings.webhookSecret }),
       };

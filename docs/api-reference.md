@@ -11,6 +11,59 @@ ShipAny 模板提供的完整 API 接口参考。
 // 后端通过 getUserUuid() 获取用户身份
 ```
 
+## 📁 文件上传 API
+
+### POST /api/upload/image
+上传图片文件到云存储
+
+**描述**: 上传图片文件，支持后续图生图等功能使用
+
+**请求格式**: `multipart/form-data`
+
+**请求参数**:
+- `file` (File): 图片文件，支持 JPEG/PNG/WebP 格式，最大 10MB
+
+**响应示例**:
+```json
+{
+  "success": true,
+  "data": {
+    "url": "https://your-domain.com/uploads/user-uuid/timestamp.jpg",
+    "location": "https://storage.endpoint.com/bucket/uploads/user-uuid/timestamp.jpg",
+    "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQ...",
+    "fileName": "uploads/user-uuid/timestamp.jpg",
+    "size": 1024000,
+    "type": "image/jpeg"
+  }
+}
+```
+
+**错误响应**:
+- `no auth`: 用户未登录
+- `no file provided`: 未提供文件
+- `invalid file type`: 文件类型不支持 (仅支持 JPEG/PNG/WebP)
+- `file too large`: 文件超过 10MB 限制
+- `upload failed`: 上传到云存储失败
+
+### 存储配置
+
+项目使用 S3 兼容的存储接口，支持 Cloudflare R2、AWS S3 等：
+
+**环境变量配置**:
+```bash
+# 存储服务配置
+STORAGE_ENDPOINT=https://your-account.r2.cloudflarestorage.com
+STORAGE_REGION=auto
+STORAGE_ACCESS_KEY=your-access-key
+STORAGE_SECRET_KEY=your-secret-key
+STORAGE_BUCKET=your-bucket-name
+STORAGE_DOMAIN=https://your-custom-domain.com  # 可选，自定义域名
+```
+
+**存储路径规则**:
+- 用户上传文件: `uploads/{userUuid}/{timestamp}.{extension}`
+- AI生成结果: `ai-generated/{userUuid}/{orderId}/{filename}`
+
 ## 🤖 AI 功能 API
 
 ### POST /api/ai/generate-image
@@ -54,11 +107,66 @@ ShipAny 模板提供的完整 API 接口参考。
 ```json
 {
   "prompt": "string",
-  "provider": "string", 
+  "provider": "string",
   "model": "string",
   "options": "object"
 }
 ```
+
+### POST /api/ai/image-to-image
+图生图 AI 生成（基于输入图片生成新图片）
+
+**请求参数**:
+```json
+{
+  "prompt": "string",           // 必需，图片修改描述
+  "provider": "string",         // 必需，AI提供商 (tuzi/openai等)
+  "model": "string",            // 必需，模型名称 (如 flux-kontext-pro)
+  "bizNo": "string",            // 必需，业务号（确保幂等性）
+  "inputImage": "string",       // 可选，输入图片的base64格式 (data:image/...)
+  "inputImageUrl": "string",    // 可选，输入图片的URL地址
+  "options": "object"           // 可选，提供商特定参数
+}
+```
+
+**注意**: `inputImage` 和 `inputImageUrl` 必须提供其中一个，不能同时提供
+
+**响应格式**:
+```json
+{
+  "success": true,
+  "data": {
+    "orderId": 123,
+    "images": [
+      {
+        "url": "https://example.com/generated-image.jpg",
+        "location": "https://storage.com/bucket/image.jpg"
+      }
+    ],
+    "creditsConsumed": 10,
+    "isRetry": false
+  }
+}
+```
+
+**错误响应**:
+- `invalid params`: 缺少必需参数
+- `invalid inputImage format`: base64格式错误
+- `invalid inputImageUrl format`: URL格式错误
+- `insufficient credits`: 积分不足
+- `generation failed`: 生成失败
+
+**使用场景**:
+1. **单图生成**: 使用 `inputImageUrl` 或 `inputImage` 参数
+2. **多图组合**: 使用 `inputImageUrls` 参数（数组）
+3. **先上传后生成**: 用户先调用 `/api/upload/image` 上传图片，获得URL
+4. **直接base64生成**: 前端直接将图片转为base64（适合小图片或demo）
+
+**Provider特殊实现**:
+- **Tuzi API**: 自动将图片URL拼接到提示词前面，支持多图组合
+- **其他Provider**: 按各自API规范处理输入图片
+
+**环境变量配置**: 与文生图共享相同配置
 
 ### GET /api/ai-generations
 获取用户生成历史
@@ -357,9 +465,92 @@ export function useAPI() {
 4. **幂等性**: 重要操作支持幂等性处理
 5. **错误处理**: 不暴露敏感的系统信息
 
+## 🌍 地理位置检测 API
+
+### GET /api/geolocation/test
+测试地理位置检测功能
+
+**描述**: 检测当前请求的地理位置信息，用于验证 Cloudflare IP Geolocation 功能
+
+**响应示例**:
+```json
+{
+  "success": true,
+  "data": {
+    "validation": {
+      "enabled": true,
+      "message": "Cloudflare IP Geolocation is working correctly"
+    },
+    "geolocation": {
+      "countryCode": "US",
+      "countryName": "United States",
+      "isHighRisk": false,
+      "signupCredits": 100,
+      "tier": "tier1",
+      "description": "发达国家，高付费意愿",
+      "source": "cloudflare"
+    },
+    "riskAssessment": {
+      "riskScore": 5,
+      "factors": [],
+      "recommendation": "allow"
+    }
+  }
+}
+```
+
+### GET /api/admin/geolocation/config
+查看地理位置积分配置（管理员）
+
+**描述**: 查看当前的地理位置积分配置和环境变量状态
+
+**权限**: 需要管理员权限
+
+**响应示例**:
+```json
+{
+  "success": true,
+  "data": {
+    "config": {
+      "tier1": {
+        "countries": ["US", "CA", "GB"],
+        "signupCredits": 100,
+        "description": "发达国家，高付费意愿"
+      },
+      "tier3": {
+        "countries": ["IN", "BD", "PK"],
+        "signupCredits": 20,
+        "description": "高风险地区，需要控制滥用"
+      }
+    }
+  }
+}
+```
+
+## 地理位置积分配置
+
+### 环境变量配置
+```bash
+# 启用地理位置积分功能
+GEO_CREDITS_ENABLED=true
+
+# 分层配置
+GEO_CREDITS_TIER1_COUNTRIES="US,CA,GB,DE,FR"
+GEO_CREDITS_TIER1_AMOUNT=100
+GEO_CREDITS_TIER3_COUNTRIES="IN,BD,PK,NG"
+GEO_CREDITS_TIER3_AMOUNT=20
+GEO_CREDITS_DEFAULT_AMOUNT=75
+```
+
+### 前置条件
+1. 域名必须通过 Cloudflare 代理
+2. 在 Cloudflare Dashboard 中启用 IP Geolocation
+3. 设置 `ADMIN_EMAILS` 环境变量（管理接口需要）
+
 ## 📞 技术支持
 
 如有 API 使用问题，请参考：
 - [AI 功能指南](./ai-guide.md)
+- [地理位置积分策略](./geolocation-credits.md)
 - [开发指南](./development-guide.md)
 - [GitHub Issues](https://github.com/shipanyai/shipany-template-one/issues)
