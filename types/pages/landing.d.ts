@@ -3,11 +3,13 @@ import { Hero } from "@/types/blocks/hero";
 import { Section } from "@/types/blocks/section";
 import { Footer } from "@/types/blocks/footer";
 import { Pricing } from "@/types/blocks/pricing";
+import { ImageComparisonSection } from "@/components/blocks/image-comparison-showcase";
 
 export interface LandingPage {
   header?: Header;
   hero?: Hero;
   branding?: Section;
+  image_comparison?: ImageComparisonSection;
   introduce?: Section;
   benefit?: Section;
   usage?: Section;

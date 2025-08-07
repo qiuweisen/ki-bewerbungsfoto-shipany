@@ -6,6 +6,7 @@ import Feature1 from "@/components/blocks/feature1";
 import Feature2 from "@/components/blocks/feature2";
 import Feature3 from "@/components/blocks/feature3";
 import Hero from "@/components/blocks/hero";
+import ImageComparisonShowcase from "@/components/blocks/image-comparison-showcase";
 import Pricing from "@/components/blocks/pricing";
 import Showcase from "@/components/blocks/showcase";
 import Stats from "@/components/blocks/stats";
@@ -43,11 +44,10 @@ export default async function LandingPage({
     <>
       {page.hero && <Hero hero={page.hero} />}
       {page.branding && <Branding section={page.branding} />}
-      {page.introduce && <Feature1 section={page.introduce} />}
+      {page.image_comparison && <ImageComparisonShowcase section={page.image_comparison} />}
       {page.benefit && <Feature2 section={page.benefit} />}
-      {page.usage && <Feature3 section={page.usage} />}
       {page.feature && <Feature section={page.feature} />}
-      {page.showcase && <Showcase section={page.showcase} />}
+      {page.usage && <Feature3 section={page.usage} />}
       {page.stats && <Stats section={page.stats} />}
       {page.pricing && <Pricing pricing={page.pricing} />}
       {page.testimonial && <Testimonial section={page.testimonial} />}

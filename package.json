@@ -1,11 +1,12 @@
 {
-  "name": "shipany-template-one",
+  "name": "ki-bewerbungsfoto",
   "version": "2.0.0",
   "private": true,
   "author": "idoubi",
   "homepage": "https://shipany.ai",
   "scripts": {
-    "dev": "cross-env NODE_NO_WARNINGS=1 next dev --turbopack",
+    "dev": "cross-env NODE_NO_WARNINGS=1 next dev",
+    "dev:turbo": "cross-env NODE_NO_WARNINGS=1 next dev --turbopack",
     "build": "next build",
     "start": "NODE_NO_WARNINGS=1 next start",
     "lint": "next lint",
