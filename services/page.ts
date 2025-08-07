@@ -25,9 +25,9 @@ export async function getPage(
       `@/i18n/pages/${name}/${locale.toLowerCase()}.json`
     ).then((module) => module.default);
   } catch (error) {
-    console.warn(`Failed to load ${locale}.json, falling back to en.json`);
+    console.warn(`Failed to load ${locale}.json, falling back to de.json`);
 
-    return await import(`@/i18n/pages/${name}/en.json`).then(
+    return await import(`@/i18n/pages/${name}/de.json`).then(
       (module) => module.default
     );
   }

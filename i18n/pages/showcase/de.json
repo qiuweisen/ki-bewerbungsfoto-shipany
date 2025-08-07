@@ -1,0 +1,82 @@
+{
+  "showcase": {
+    "name": "showcase",
+    "label": "Beispiele",
+    "title": "Bewerbungsfoto Beispiele",
+    "description": "Sehen Sie echte Beispiele von professionellen Bewerbungsfotos, die mit unserer KI-Technologie erstellt wurden.",
+    "items": [
+      {
+        "title": "Marketing Manager",
+        "description": "Professionelles Bewerbungsfoto für eine Marketing Position",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+          "alt": "Marketing Manager Bewerbungsfoto"
+        }
+      },
+      {
+        "title": "Software Engineer",
+        "description": "Technisches Profil für IT-Bewerbungen",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+          "alt": "Software Engineer Bewerbungsfoto"
+        }
+      },
+      {
+        "title": "Verkaufsleiterin",
+        "description": "Vertrauensvolles Bewerbungsfoto für Führungsposition",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1494790108755-2616b612b976?w=400&h=400&fit=crop&crop=face",
+          "alt": "Verkaufsleiterin Bewerbungsfoto"
+        }
+      },
+      {
+        "title": "Finanzberater",
+        "description": "Seriöses Bewerbungsfoto für Finanzbranche",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face",
+          "alt": "Finanzberater Bewerbungsfoto"
+        }
+      },
+      {
+        "title": "Projektmanager",
+        "description": "Professionelles Bewerbungsfoto für Projektmanagement",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face",
+          "alt": "Projektmanager Bewerbungsfoto"
+        }
+      },
+      {
+        "title": "HR Direktorin",
+        "description": "Vertrauensvolles Bewerbungsfoto für HR-Führung",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop&crop=face",
+          "alt": "HR Direktorin Bewerbungsfoto"
+        }
+      },
+      {
+        "title": "Unternehmensberater",
+        "description": "Executive-Level Bewerbungsfoto für Beratung",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face",
+          "alt": "Unternehmensberater Bewerbungsfoto"
+        }
+      },
+      {
+        "title": "Marketingleiterin",
+        "description": "Kreatives Bewerbungsfoto für Marketing-Führung",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face",
+          "alt": "Marketingleiterin Bewerbungsfoto"
+        }
+      },
+      {
+        "title": "Ingenieur",
+        "description": "Technisches Bewerbungsfoto für Ingenieurswesen",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
+          "alt": "Ingenieur Bewerbungsfoto"
+        }
+      }
+    ]
+  }
+}

@@ -33,9 +33,9 @@ export default function HappyUsers() {
             />
           ))}
         </div>
-        <p className="text-left font-medium text-muted-foreground">
-          from 58.725+ happy customers
-        </p>
+                          <p className="text-left font-medium text-muted-foreground">
+                    von 58.725+ zufriedenen Kunden
+                  </p>
       </div>
     </div>
   );

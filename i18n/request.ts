@@ -12,7 +12,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
   }
 
   if (!routing.locales.includes(locale as any)) {
-    locale = "en";
+    locale = routing.defaultLocale;
   }
 
   try {
@@ -24,8 +24,8 @@ export default getRequestConfig(async ({ requestLocale }) => {
     };
   } catch (e) {
     return {
-      locale: "en",
-      messages: (await import(`./messages/en.json`)).default,
+      locale: routing.defaultLocale,
+      messages: (await import(`./messages/${routing.defaultLocale}.json`)).default,
     };
   }
 });

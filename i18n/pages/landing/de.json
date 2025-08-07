@@ -1,0 +1,490 @@
+{
+  "template": "shipany-template-one",
+  "theme": "light",
+  "header": {
+    "brand": {
+      "title": "KI Bewerbungsfoto",
+      "logo": {
+        "src": "/logo.png",
+        "alt": "KI Bewerbungsfoto"
+      },
+      "url": "/"
+    },
+    "nav": {
+      "items": [
+        {
+          "title": "Für Unternehmen",
+          "url": "/#pricing",
+          "icon": "RiBuildingLine"
+        },
+        {
+          "title": "Bewertungen",
+          "url": "/#testimonial",
+          "icon": "RiStarFill"
+        },
+        {
+          "title": "Preise",
+          "url": "/pricing",
+          "icon": "RiMoneyEuroCircleLine"
+        }
+      ]
+    },
+    "buttons": [
+      {
+        "title": "Bewerbungsfoto erstellen",
+        "url": "/image-to-image",
+        "target": "_self",
+        "variant": "default",
+        "icon": "RiCameraFill"
+      }
+    ],
+    "show_sign": true,
+    "show_theme": true,
+    "show_locale": false
+  },
+  "hero": {
+    "title": "Der realistischste KI Bewerbungsfoto Generator",
+    "highlight_text": "realistischste",
+    "description": "Professionelle KI-generierte Bewerbungsfotos in Studioqualität - ohne Fotograf.<br/>Laden Sie Selfies hoch und erhalten Sie professionelle Bewerbungsfotos in Studioqualität innerhalb von Minuten.",
+    "announcement": {
+      "label": "NEU",
+      "title": "🇩🇪 Made in Germany - DSGVO-konform",
+      "url": "/#pricing"
+    },
+    "tip": "✅ Zufriedenheitsgarantie",
+    "buttons": [
+      {
+        "title": "Bewerbungsfoto erstellen",
+        "icon": "RiCameraFill",
+        "url": "/image-to-image",
+        "target": "_self",
+        "variant": "default"
+      },
+      {
+        "title": "Für Unternehmen",
+        "icon": "RiBuildingLine",
+        "url": "/#pricing",
+        "target": "_self",
+        "variant": "outline"
+      }
+    ],
+    "show_happy_users": true,
+    "show_badge": true
+  },
+  "branding": {
+    "title": "Vertraut von Einzelpersonen, kleinen Teams und großen Unternehmen",
+    "items": [
+      {
+        "title": "Made in Germany",
+        "image": {
+          "src": "https://flagicons.lipis.dev/flags/4x3/de.svg",
+          "alt": "Made in Germany"
+        }
+      },
+      {
+        "title": "DSGVO-konform",
+        "image": {
+          "src": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/eu.svg",
+          "alt": "DSGVO-konform"
+        }
+      },
+      {
+        "title": "Sicherheit auf Enterprise-Niveau",
+        "image": {
+          "src": "https://img.shields.io/badge/Security-Enterprise-orange?style=for-the-badge&logo=shield&logoColor=white",
+          "alt": "Enterprise Sicherheit"
+        }
+      },
+      {
+        "title": "30-Tage Löschung",
+        "image": {
+          "src": "https://img.shields.io/badge/Privacy-30%20Days-orange?style=for-the-badge&logo=calendar&logoColor=white",
+          "alt": "30-Tage Löschung"
+        }
+      },
+      {
+        "title": "Zufriedenheitsgarantie",
+        "image": {
+          "src": "https://img.shields.io/badge/Guarantee-100%25-orange?style=for-the-badge&logo=checkmark&logoColor=white",
+          "alt": "Zufriedenheitsgarantie"
+        }
+      }
+    ]
+  },
+  "image_comparison": {
+    "name": "image_comparison",
+    "title": "Von Selfies zu professionellen Bewerbungsfotos",
+    "label": "Beispiele",
+    "description": "Sehen Sie, wie realistisch und hochwertig unsere KI-generierten Bewerbungsfotos aussehen.",
+    "showLabels": true,
+    "aspectRatio": "16/9",
+    "columns": 2,
+    "items": [
+      {
+        "title": "Marcus Weber",
+        "description": "Ingenieur",
+        "beforeImage": {
+          "src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+          "alt": "Vorher - Casual Selfie"
+        },
+        "afterImage": {
+          "src": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+          "alt": "Nachher - Professionelles Bewerbungsfoto"
+        },
+        "beforeLabel": "Vorher",
+        "afterLabel": "KI-generiert"
+      },
+      {
+        "title": "Elena Schmidt",
+        "description": "Vertriebsleiterin", 
+        "beforeImage": {
+          "src": "https://images.unsplash.com/photo-1494790108755-2616b612b976?w=400&h=400&fit=crop&crop=face",
+          "alt": "Vorher - Casual Selfie"
+        },
+        "afterImage": {
+          "src": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face",
+          "alt": "Nachher - Professionelles Bewerbungsfoto"
+        },
+        "beforeLabel": "Vorher",
+        "afterLabel": "KI-generiert"
+      }
+    ]
+  },
+  "benefit": {
+    "name": "benefit",
+    "title": "Jedes Fotoshooting beinhaltet",
+    "label": "Inbegriffen",
+    "description": "Erhalten Sie alles, was Sie für professionelle Bewerbungsfotos benötigen, ohne Ihr Budget zu sprengen.",
+    "items": [
+      {
+        "title": "Große Auswahl an professionellen Bewerbungsfotos",
+        "description": "Wählen Sie aus 40-200 hochwertigen Fotos in verschiedenen Stilen und Hintergründen.",
+        "icon": "RiGalleryFill",
+        "image": {
+          "src": "/imgs/features/2.png"
+        }
+      },
+      {
+        "title": "Fertig in ~2 Stunden",
+        "description": "Schnelle Bearbeitungszeit ohne Qualitätskompromisse.",
+        "icon": "RiTimeFill",
+        "image": {
+          "src": "/imgs/features/3.png"
+        }
+      },
+      {
+        "title": "Günstiger & schneller als ein Fotograf",
+        "description": "Professionelle Studioqualität zu einem Bruchteil der Kosten.",
+        "icon": "RiMoneyEuroCircleLine",
+        "image": {
+          "src": "/imgs/features/4.png"
+        }
+      }
+    ]
+  },
+  "usage": {
+    "name": "usage",
+    "title": "Erhalten Sie Bewerbungsfotos in Minuten, ohne Studiobesuch",
+    "description": "Sparen Sie hunderte von Euro und Stunden an Zeit, indem Sie unser KI-System verwenden, um Ihre neuen professionellen Lieblings-Bewerbungsfotos zu erstellen.",
+    "image": {
+      "src": "/imgs/features/1.png"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "Laden Sie Ihre Fotos hoch",
+        "description": "Laden Sie Ihre besten Fotos auf die Plattform hoch oder machen Sie ein paar Selfies.",
+        "image": {
+          "src": "/imgs/features/5.png"
+        }
+      },
+      {
+        "title": "KI generiert Ihre Bewerbungsfotos",
+        "description": "Wir erstellen ein individuelles KI-Modell mit Ihrem digitalen Abbild.",
+        "image": {
+          "src": "/imgs/features/6.png"
+        }
+      },
+      {
+        "title": "Laden Sie Ihre Favoriten herunter",
+        "description": "Sie erhalten bis zu 200 unglaublich professionelle Fotos, die Sie nach Belieben verwenden können.",
+        "image": {
+          "src": "/imgs/features/7.png"
+        }
+      }
+    ]
+  },
+  "feature": {
+    "name": "feature",
+    "title": "Warum unser KI Bewerbungsfoto Generator wählen",
+    "description": "Wir konzentrieren uns ausschließlich auf professionelle Bewerbungsfotos und Business-Porträts.",
+    "items": [
+      {
+        "title": "Von echten Fotos nicht zu unterscheiden",
+        "description": "Ultra-realistische Ergebnisse, die natürlich und professionell aussehen.",
+        "icon": "RiEyeFill"
+      },
+      {
+        "title": "Kein Studiobesuch erforderlich",
+        "description": "Erstellen Sie professionelle Bewerbungsfotos bequem von zu Hause aus.",
+        "icon": "RiHomeFill"
+      },
+      {
+        "title": "Keine teuren Outfits oder Stylings",
+        "description": "Unsere KI fügt automatisch professionelle Kleidung und Styling hinzu.",
+        "icon": "RiShirtFill"
+      },
+      {
+        "title": "Rechnung für Geschäftsausgaben",
+        "description": "Erhalten Sie ordnungsgemäße Rechnungen für Steuerabzug und Buchhaltung.",
+        "icon": "RiFileTextFill"
+      },
+      {
+        "title": "DSGVO-konform",
+        "description": "Ihre Daten sind bei uns sicher - vollständige DSGVO-Konformität und Datenkontrolle.",
+        "icon": "RiShieldCheckFill"
+      },
+      {
+        "title": "Sicherheit auf Enterprise-Niveau",
+        "description": "Wir verwenden modernste Verschlüsselung und Sicherheitsmaßnahmen.",
+        "icon": "RiLockFill"
+      }
+    ]
+  },
+  "stats": {
+    "name": "stats",
+    "label": "Statistiken",
+    "title": "Premium-Qualität ohne Premium-Preis",
+    "description": "Erhalten Sie hochwertige, professionelle Bewerbungsfotos für Jobsuche, LinkedIn oder Ihre Mitarbeiter, ohne Ihr Budget zu sprengen.",
+    "icon": "RiStarFill",
+    "items": [
+      {
+        "title": "Bewerbungsfotos erstellt für",
+        "label": "58.725+",
+        "description": "Zufriedene Kunden"
+      },
+      {
+        "title": "Bearbeitungszeit",
+        "label": "2h",
+        "description": "Ultra schnell"
+      },
+      {
+        "title": "Kundenempfehlung",
+        "label": "96%",
+        "description": "Zufriedenheit"
+      }
+    ]
+  },
+  "testimonial": {
+    "name": "testimonial",
+    "label": "Bewertungen",
+    "title": "Was unsere Kunden sagen",
+    "description": "Lesen Sie echte Bewertungen von Fachkräften, die fantastische Bewerbungsfotos erhalten haben.",
+    "icon": "RiStarFill",
+    "items": [
+      {
+        "title": "Elena Schmidt",
+        "label": "Vertriebsleiterin",
+        "description": "Es ist unglaublich! Habe nur ein paar lässige Fotos hochgeladen und professionelle Bewerbungsfotos erhalten. Perfekt für mein LinkedIn-Profilbild. Schnell und beeindruckend!",
+        "image": {
+          "src": "/imgs/users/1.png"
+        }
+      },
+      {
+        "title": "Lars Svensson",
+        "label": "Journalist",
+        "description": "Einfach paar Selfies hochgeladen, und die KI hat sie in Bewerbungsfotos verwandelt. Die Bilder sehen so realistisch aus, ich kann es kaum glauben.",
+        "image": {
+          "src": "/imgs/users/2.png"
+        }
+      },
+      {
+        "title": "Petra Müller",
+        "label": "Architektin",
+        "description": "Ich bin begeistert! Das sind wirklich tolle und authentische Fotos!! Die Qualität hat meine Erwartungen vollständig übertroffen.",
+        "image": {
+          "src": "/imgs/users/3.png"
+        }
+      },
+      {
+        "title": "Marcus Weber",
+        "label": "Ingenieur",
+        "description": "Super realistische Fotos, unglaublich! Die KI-Technologie ist weit überlegen im Vergleich zu anderen Lösungen, die ich ausprobiert habe.",
+        "image": {
+          "src": "/imgs/users/4.png"
+        }
+      },
+      {
+        "title": "Anna Fischer",
+        "label": "Marketing-Direktorin",
+        "description": "Ich bin total positiv überrascht und richtig begeistert von den Bildern! Professionelle Qualität zu einem unschlagbaren Preis.",
+        "image": {
+          "src": "/imgs/users/5.png"
+        }
+      },
+      {
+        "title": "Thomas Klein",
+        "label": "Berater",
+        "description": "Sehr professionell. Gerne wieder :) Der ganze Prozess war reibungslos und die Ergebnisse sprechen für sich.",
+        "image": {
+          "src": "/imgs/users/6.png"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "name": "faq",
+    "label": "FAQ",
+    "title": "Häufig gestellte Fragen",
+    "description": "Finden Sie Antworten auf häufig gestellte Fragen zu unserem professionellen KI Bewerbungsfoto Generator.",
+    "items": [
+      {
+        "title": "Wie funktioniert der KI-Generator?",
+        "description": "Professionelle Bewerbungsfotos mit unserer KI zu erhalten ist einfach. Zuerst laden Sie einige Ihrer Selfies hoch. Dann beginnt unsere KI mit der Arbeit und generiert eine Vielzahl von Bewerbungsfotos in verschiedenen Stilen. Sie können dann Ihre neuen Bewerbungsfotos durchsuchen und Ihre Favoriten herunterladen. So einfach ist das!"
+      },
+      {
+        "title": "Was passiert mit meinen Fotos nach dem Hochladen?",
+        "description": "Ihre Privatsphäre hat für uns oberste Priorität. Wir verwenden Ihre hochgeladenen Fotos ausschließlich, um Ihre Bewerbungsfotos zu generieren. Ihre Fotos werden niemals für andere Zwecke verwendet und innerhalb von 30 Tagen automatisch von unseren Servern gelöscht."
+      },
+      {
+        "title": "Wer besitzt die KI-Bewerbungsfotos?",
+        "description": "Sie. Sie haben das volle Eigentum und die kommerziellen Rechte an Ihren KI-generierten Bewerbungsfotos. Verwenden Sie sie für Ihr LinkedIn-Profil, Ihre Bewerbungsunterlagen oder jeden anderen professionellen Zweck."
+      },
+      {
+        "title": "Was ist, wenn ich mit meinen Bewerbungsfotos nicht zufrieden bin?",
+        "description": "Wir stehen zu unserem Service mit einer Zufriedenheitsgarantie. Wenn Sie mit Ihren Bewerbungsfotos nicht zufrieden sind, bieten wir eine kostenlose Wiederholung mit neuen Einstellungen an. Unser Ziel ist es, sicherzustellen, dass Sie ein Bewerbungsfoto erhalten, das Sie lieben."
+      },
+      {
+        "title": "Wie lange dauert es, bis ich meine KI-Bewerbungsfotos erhalte?",
+        "description": "Sie erhalten Ihre Bewerbungsfotos noch am selben Tag. Der Prozess dauert in der Regel etwa 2 Stunden. Wir konzentrieren uns auf die Bereitstellung von hochwertigen, realistischen Bewerbungsfotos, also nehmen wir uns die Zeit, es richtig zu machen."
+      },
+      {
+        "title": "Kann ich meine KI-Bewerbungsfotos für LinkedIn verwenden?",
+        "description": "Absolut. Unsere Bewerbungsfotos sind perfekt für LinkedIn und Bewerbungsunterlagen. Viele unserer Kunden nutzen ihre neuen Bewerbungsfotos, um ihre beruflichen Profile zu verbessern und einen großartigen ersten Eindruck zu hinterlassen."
+      }
+    ]
+  },
+  "cta": {
+    "name": "cta",
+    "title": "Erstellen Sie jetzt Ihr KI Bewerbungsfoto",
+    "description": "Fertig in 2 Stunden. Zufriedenheit garantiert.",
+    "buttons": [
+      {
+        "title": "Bewerbungsfoto erstellen",
+        "url": "/image-to-image",
+        "target": "_self",
+        "icon": "RiCameraFill"
+      },
+      {
+        "title": "Beispiele ansehen",
+        "url": "/showcase",
+        "target": "_self",
+        "variant": "outline"
+      }
+    ]
+  },
+  "footer": {
+    "name": "footer",
+    "brand": {
+      "title": "KI Bewerbungsfoto",
+      "description": "KI Bewerbungsfoto ist Deutschlands führender KI-Generator für professionelle Bewerbungsfotos. Erhalten Sie studioqualitative Bewerbungsfotos in Minuten.",
+      "logo": {
+        "src": "/logo.png",
+        "alt": "KI Bewerbungsfoto"
+      },
+      "url": "/"
+    },
+    "copyright": "© 2025 • KI Bewerbungsfoto Alle Rechte vorbehalten.",
+    "nav": {
+      "items": [
+        {
+          "title": "Über uns",
+          "children": [
+            {
+              "title": "Funktionen",
+              "url": "/#feature",
+              "target": "_self"
+            },
+            {
+              "title": "Beispiele",
+              "url": "/#image_comparison",
+              "target": "_self"
+            },
+            {
+              "title": "Preise",
+              "url": "/#pricing",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "Ressourcen",
+          "children": [
+            {
+              "title": "Fotoanforderungen",
+              "url": "/requirements",
+              "target": "_self"
+            },
+            {
+              "title": "Bewertungen",
+              "url": "/#testimonial",
+              "target": "_self"
+            },
+            {
+              "title": "Hilfe & Support",
+              "url": "/support",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "Rechtliches",
+          "children": [
+            {
+              "title": "Datenschutz",
+              "url": "/privacy-policy",
+              "target": "_self"
+            },
+            {
+              "title": "AGB",
+              "url": "/terms-of-service",
+              "target": "_self"
+            },
+            {
+              "title": "Impressum",
+              "url": "/impressum",
+              "target": "_self"
+            }
+          ]
+        }
+      ]
+    },
+    "social": {
+      "items": [
+        {
+          "title": "Email",
+          "icon": "RiMailLine",
+          "url": "mailto:kontakt@online-bewerbungsfoto.de",
+          "target": "_self"
+        }
+      ]
+    },
+    "agreement": {
+      "items": [
+        {
+          "title": "Datenschutz",
+          "url": "/privacy-policy"
+        },
+        {
+          "title": "Nutzungsbedingungen",
+          "url": "/terms-of-service"
+        },
+        {
+          "title": "Impressum",
+          "url": "/impressum"
+        }
+      ]
+    }
+  }
+}

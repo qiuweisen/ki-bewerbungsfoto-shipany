@@ -1,0 +1,113 @@
+{
+  "pricing": {
+    "name": "pricing",
+    "label": "Preise",
+    "title": "Transparente Preise für professionelle Bewerbungsfotos",
+    "description": "Wählen Sie das perfekte Paket für Ihre professionellen Bewerbungsfotos. Keine versteckten Kosten.",
+    "groups": [],
+    "items": [
+      {
+        "title": "Basis",
+        "description": "Perfekt für einzelne Bewerbungen.",
+        "features_title": "Enthält",
+        "features": [
+          "20 professionelle Bewerbungsfotos",
+          "Hochaufgelöste Bilder (HD)",
+          "Verschiedene Hintergründe",
+          "2-3 Stunden Bearbeitungszeit",
+          "Download als JPG",
+          "30 Tage Speicherung"
+        ],
+        "interval": "einmalig",
+        "amount": 2900,
+        "cn_amount": 2900,
+        "currency": "EUR",
+        "price": "29€",
+        "original_price": "79€",
+        "unit": "EUR",
+        "is_featured": false,
+        "tip": "Ideal für einzelne Jobsuche",
+        "button": {
+          "title": "Jetzt bestellen",
+          "url": "/image-to-image",
+          "icon": "RiCameraFill"
+        },
+        "product_id": "basic_headshots",
+        "product_name": "Basis Bewerbungsfotos Paket",
+        "credits": 20,
+        "valid_months": 1
+      },
+      {
+        "title": "Premium",
+        "description": "Beste Wahl für mehrere Anwendungen.",
+        "label": "Beliebt",
+        "features_title": "Alles aus Basis, plus",
+        "features": [
+          "40 professionelle Bewerbungsfotos",
+          "Premium Bildqualität (Ultra HD)",
+          "5+ verschiedene Outfits/Stile",
+          "10+ professionelle Hintergründe",
+          "1-2 Stunden Bearbeitungszeit",
+          "Download als JPG & PNG",
+          "Rechnung für Steuerabzug",
+          "60 Tage Speicherung",
+          "E-Mail Support"
+        ],
+        "interval": "einmalig",
+        "amount": 4900,
+        "cn_amount": 4900,
+        "currency": "EUR",
+        "price": "49€",
+        "original_price": "129€",
+        "unit": "EUR",
+        "is_featured": true,
+        "tip": "Am beliebtesten - bestes Preis-Leistungs-Verhältnis",
+        "button": {
+          "title": "Jetzt bestellen",
+          "url": "/image-to-image",
+          "icon": "RiStarFill"
+        },
+        "product_id": "premium_headshots",
+        "product_name": "Premium Bewerbungsfotos Paket",
+        "credits": 40,
+        "valid_months": 2
+      },
+      {
+        "title": "Professional",
+        "description": "Für Unternehmen und Teams.",
+        "features_title": "Alles aus Premium, plus",
+        "features": [
+          "80 professionelle Bewerbungsfotos",
+          "Studioqualität (4K)",
+          "10+ verschiedene Outfits/Stile",
+          "20+ professionelle Hintergründe",
+          "1 Stunde Bearbeitungszeit",
+          "Download in allen Formaten",
+          "Professionelle Retusche",
+          "Unbegrenzte Revisionen",
+          "90 Tage Speicherung",
+          "Prioritäts-Support",
+          "Firmenrechnung möglich"
+        ],
+        "interval": "einmalig",
+        "amount": 7900,
+        "cn_amount": 7900,
+        "currency": "EUR",
+        "price": "79€",
+        "original_price": "199€",
+        "unit": "EUR",
+        "is_featured": false,
+        "tip": "Beste Qualität für professionelle Anwendungen",
+        "button": {
+          "title": "Jetzt bestellen",
+          "url": "/image-to-image",
+          "icon": "RiBuildingFill"
+        },
+        "product_id": "professional_headshots",
+        "product_name": "Professional Bewerbungsfotos Paket",
+        "credits": 80,
+        "valid_months": 3
+      }
+    ]
+  }
+}
